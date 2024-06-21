@@ -15,6 +15,7 @@ import umc.spring.repository.MemberRepository;
 import umc.spring.web.dto.MemberRequestDTO;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,5 +38,9 @@ public class MemberCommandService {
         MemberFoodList.forEach(memberFood -> {memberFood.setMember(newMember);});
 
         return memberRepository.save(newMember);
+    }
+
+    public Optional<Member> findMember(Long value) {
+        return memberRepository.findById(value);
     }
 }
