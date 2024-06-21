@@ -8,6 +8,7 @@ import umc.spring.domain.common.BaseEntity;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -24,4 +25,16 @@ public class MemberFood extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "food_id")
     private Food food;
+
+    public void setMember(Member member) {
+        if(this.member != null){
+            member.getMemberFoodList().remove(this);
+        }
+        this.member = member;
+        member.getMemberFoodList().add(this);
+    }
+
+    public void setFood(Food food) {
+        this.food = food;
+    }
 }
