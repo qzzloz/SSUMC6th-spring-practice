@@ -3,6 +3,8 @@ package umc.spring.domain;
 import lombok.*;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.mapping.MemberFood;
@@ -14,6 +16,8 @@ import java.util.List;
 
 @Entity
 @Getter
+@DynamicInsert
+@DynamicUpdate
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -26,11 +30,8 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 10)
     private String name;
 
-    @Column(nullable = false, length = 15)
-    private String phone;
-
-    @Column(nullable = false, length = 20)
-    private String nickname;
+//    @Column(nullable = false, length = 15)
+//    private String phone;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(10)")
@@ -41,7 +42,7 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String address;
 
-    @Column(nullable = false, length = 20)
+//    @Column(nullable = false, length = 20)
     private String nowLoc;
 
     @ColumnDefault("0")
