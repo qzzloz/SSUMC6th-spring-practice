@@ -5,11 +5,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import umc.spring.apiPayload.ApiResponse;
-import umc.spring.converter.MemberConverter;
 import umc.spring.converter.MissionConverter;
 import umc.spring.domain.Mission;
+import umc.spring.domain.enums.MissionStatus;
+import umc.spring.domain.mapping.MemberMission;
 import umc.spring.service.MissionCommandService;
 import umc.spring.validation.annotation.ExistStore;
+import umc.spring.web.dto.MemberMissionRequestDTO;
+import umc.spring.web.dto.MemberMissionResponseDTO;
 import umc.spring.web.dto.MissionRequestDTO;
 import umc.spring.web.dto.MissionResponseDTO;
 
