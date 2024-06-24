@@ -31,7 +31,5 @@ public class StoreCommandService {
         return reviewRepository.save(newReview);
     }
 
-    public Optional<Store> findBy(Long value) {
-        return storeRepository.findById(value);
-    }
+
 }
