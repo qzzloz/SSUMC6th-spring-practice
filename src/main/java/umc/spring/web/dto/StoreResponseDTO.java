@@ -42,4 +42,27 @@ public class StoreResponseDTO {
         Boolean isFirst;
         Boolean isLast;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MissionPreViewDTO{
+        String storeName;
+        String missionSpec;
+        Double point;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MissionPreViewListDTO{
+        List<MissionPreViewDTO> missionPreViewListDTO;
+        Integer listSize;
+        Integer totalPage;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
 }
