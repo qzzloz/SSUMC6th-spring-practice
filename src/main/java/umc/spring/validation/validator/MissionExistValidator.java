@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.domain.Store;
 import umc.spring.service.StoreCommandService;
+import umc.spring.service.StoreQueryService;
 import umc.spring.validation.annotation.ExistMission;
 import umc.spring.validation.annotation.ExistStore;
 
@@ -16,6 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MissionExistValidator implements ConstraintValidator<ExistMission, Long> {
     private final StoreCommandService storeCommandService;
+    private final StoreQueryService storeQueryService;
 
     @Override
     public void initialize(ExistMission constraintAnnotation) {
@@ -24,7 +26,7 @@ public class MissionExistValidator implements ConstraintValidator<ExistMission, 
 
     @Override
     public boolean isValid(Long value, ConstraintValidatorContext context) {
-        Optional<Store> store = storeCommandService.findBy(value);
+        Optional<Store> store = storeQueryService.findBy(value);
 
         if(store.isEmpty()){
             context.disableDefaultConstraintViolation();
