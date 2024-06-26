@@ -2,8 +2,12 @@ package umc.spring.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import umc.spring.converter.MemberMissionConverter;
+import umc.spring.domain.Member;
+import umc.spring.domain.Mission;
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.repository.MemberMissionRepository;
