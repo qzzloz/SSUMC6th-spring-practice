@@ -19,4 +19,22 @@ public class MemberMissionResponseDTO {
     private Long memberId;
 
     private MissionStatus status;
+//
+//    @Builder
+//    @Getter
+//    @NoArgsConstructor
+//    @AllArgsConstructor
+//    public static class MemberMissionPreViewDTO{
+//        String storeName;
+//        String missionSpec;
+//
+//    }
+//
+//    @Builder
+//    @Getter
+//    @NoArgsConstructor
+//    @AllArgsConstructor
+//    public static class MemberMissionPreViewListDTO{
+//
+//    }
 }

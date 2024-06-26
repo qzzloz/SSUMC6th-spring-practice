@@ -9,10 +9,8 @@ import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
 import umc.spring.domain.Store;
-import umc.spring.repository.MemberRepository;
-import umc.spring.repository.MissionRepository;
-import umc.spring.repository.ReviewRepository;
-import umc.spring.repository.StoreRepository;
+import umc.spring.domain.mapping.MemberMission;
+import umc.spring.repository.*;
 
 import java.util.Optional;
 
@@ -24,6 +22,8 @@ public class StoreQueryService {
     private final ReviewRepository reviewRepository;
     private final MissionRepository missionRepository;
     private final MemberRepository memberRepository;
+    private final MemberMissionRepository MemberMissionRepository;
+    private final MemberMissionRepository memberMissionRepository;
 
     @Transactional
     public Optional<Store> findBy(Long value) {
