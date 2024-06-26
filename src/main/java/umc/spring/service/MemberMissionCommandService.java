@@ -25,12 +25,20 @@ public class MemberMissionCommandService {
 
     @Transactional
     public MemberMission updateChallengeMission(MemberMissionRequestDTO request, Long memberId, Long missionId, MissionStatus status) {
-        MemberMission newMM = MemberMission.builder()
-                .status(status)
-                .member(memberRepository.findById(memberId).get())
-                .mission(missionRepository.findById(missionId).get())
-                .build();
+        Optional<MemberMission> optionalMemberMission = memberMissionRepository.findByMemberIdAndMissionId(memberId, missionId);
 
-        return memberMissionRepository.save(newMM);
+        if (optionalMemberMission.isPresent()) {
+            MemberMission memberMission = optionalMemberMission.get();
+            memberMission.setStatus(status);
+            return memberMissionRepository.save(memberMission);
+        } else {
+            MemberMission newMM = MemberMission.builder()
+                    .status(status)
+                    .member(memberRepository.findById(memberId).get())
+                    .mission(missionRepository.findById(missionId).get())
+                    .build();
+
+            return memberMissionRepository.save(newMM);
+        }
     }
 }
