@@ -10,4 +10,9 @@ public class RootController {
     public String healthCheck(){
         return "Im healthy";
     }
+
+    @GetMapping("/")
+    public String Hi(){
+        return "HIHIHIHI";
+    }
 }
